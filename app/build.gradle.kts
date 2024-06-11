@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.googleKsp)
 }
 
 android {
@@ -66,4 +67,23 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.retrofit2.retrofit)
+    implementation(libs.retrofit2.converter.gson)
+    implementation(libs.okhttp3.okhttp)
+    implementation(libs.okhttp3.logging.interceptor)
+
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.runtime.compiler)
+    implementation(libs.androidx.room.ktx)
+
+    implementation(libs.androidx.viewmodel)
+    implementation(libs.androidx.viewmodel.ktx)
+
+    implementation(libs.kotlinx.coroutines)
+    implementation(libs.kotlinx.coroutines.core)
+
+    implementation(libs.androidx.koin.compose)
+
+    implementation(libs.google.location)
 }

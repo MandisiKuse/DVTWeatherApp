@@ -3,7 +3,7 @@ package com.dvt.weatherapp.domain.model
 data class WeatherData(
     val dt: Int?,
     val main: Main?,
-    val weather: List<Weather?>?,
+    val weather: List<Weather>?,
     val clouds: Clouds?,
     val wind: Wind?,
     val visibility: Int?,

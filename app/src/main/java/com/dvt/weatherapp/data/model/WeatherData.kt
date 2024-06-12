@@ -1,4 +1,4 @@
-package com.dvt.weatherapp.domain.model
+package com.dvt.weatherapp.data.model
 
 data class WeatherData(
     val dt: Int?,

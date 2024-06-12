@@ -1,7 +1,7 @@
-package com.dvt.weatherapp.domain.model
+package com.dvt.weatherapp.data.model
 
 data class City(
-    val coordinates: Coordinates?,
+    val coord: Coord?,
     val country: String,
     val id: Int,
     val name: String,

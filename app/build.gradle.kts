@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    alias(libs.plugins.googleKsp)
 }
 
 android {
@@ -60,6 +59,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.runtime.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -73,10 +73,6 @@ dependencies {
     implementation(libs.okhttp3.okhttp)
     implementation(libs.okhttp3.logging.interceptor)
 
-    implementation(libs.androidx.room.runtime)
-    ksp(libs.androidx.room.runtime.compiler)
-    implementation(libs.androidx.room.ktx)
-
     implementation(libs.androidx.viewmodel)
     implementation(libs.androidx.viewmodel.ktx)
 
@@ -84,6 +80,8 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
 
     implementation(libs.androidx.koin.compose)
+
+    implementation(libs.compose.navigation)
 
     implementation(libs.google.location)
 }

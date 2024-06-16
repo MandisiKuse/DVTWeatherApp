@@ -1,4 +1,4 @@
-package com.dvt.weatherapp.data.model
+package com.dvt.weatherapp.data.remote.model
 
 data class Main(
     val temp: Double?,

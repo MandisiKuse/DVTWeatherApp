@@ -3,8 +3,11 @@ package com.dvt.weatherapp.di
 import com.dvt.weatherapp.data.remote.WeatherApi
 import com.dvt.weatherapp.data.repository.CurrentLocationRepositoryImpl
 import com.dvt.weatherapp.data.repository.WeatherRepositoryImpl
+import com.dvt.weatherapp.domain.mapper.CityWeatherMapper
+import com.dvt.weatherapp.domain.mapper.WeatherMapper
 import com.dvt.weatherapp.domain.repository.CurrentLocationRepository
 import com.dvt.weatherapp.domain.repository.WeatherRepository
+import com.dvt.weatherapp.ui.viewmodel.WeatherViewModel
 import com.dvt.weatherapp.util.AppConstants
 import com.google.android.gms.location.LocationServices
 import okhttp3.OkHttpClient
@@ -17,9 +20,17 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-val apiModule = module { single { get<Retrofit>().create(WeatherApi::class.java) } }
+val serviceModule = module {
+    single { provideRetrofit() }
 
-val retrofitModule = module { single { provideRetrofit() } }
+    factory { get<Retrofit>().create(WeatherApi::class.java) }
+}
+
+val mapperModule = module {
+    single { WeatherMapper() }
+
+    single { CityWeatherMapper() }
+}
 
 val repositoryModule = module {
     single {
@@ -31,9 +42,11 @@ val repositoryModule = module {
     single { WeatherRepositoryImpl(get()) } withOptions { bind<WeatherRepository>() }
 }
 
-val viewModelModule = module {  }
+val viewModelModule = module {
+    single { WeatherViewModel(get(),get(),get(), get()) }
+}
 
-val allModules = listOf(apiModule, retrofitModule, repositoryModule, viewModelModule)
+val allModules = listOf(serviceModule, mapperModule, repositoryModule, viewModelModule)
 
 private fun provideRetrofit(): Retrofit =
     Retrofit.Builder()

@@ -1,7 +1,7 @@
 package com.dvt.weatherapp.data.repository
 
-import com.dvt.weatherapp.data.model.CurrentWeather
-import com.dvt.weatherapp.data.model.Forecast
+import com.dvt.weatherapp.data.remote.model.CurrentWeather
+import com.dvt.weatherapp.data.remote.model.Forecast
 import com.dvt.weatherapp.data.remote.WeatherApi
 import com.dvt.weatherapp.domain.repository.WeatherRepository
 import com.dvt.weatherapp.util.Resource
@@ -10,10 +10,10 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 
 class WeatherRepositoryImpl(private val weatherApi: WeatherApi): WeatherRepository {
-    override suspend fun getWeather(lat: Double, lon: Double): Flow<Resource<CurrentWeather>> =
+    override suspend fun getWeatherByCity(city: String): Flow<Resource<CurrentWeather>> =
         flow<Resource<CurrentWeather>> {
             emit(Resource.Loading())
-            with(weatherApi.getCurrentWeather(lat, lon)) {
+            with(weatherApi.getWeatherByCity(city)) {
                 if (!isSuccessful) {
                     emit(Resource.Error(message()))
                 } else {

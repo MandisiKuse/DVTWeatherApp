@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">DVTWeatherApp</string>
+
+    <string name="min">min</string>
+    <string name="max">max</string>
+    <string name="current">current</string>
+
+    <string name="error_heading">Something went wrong!</string>
+    <string name="error_content">Please ensure you have internet connection and try again.</string>
+    <string name="button_retry">Retry</string>
+    <string name="button_cancel">Cancel</string>
+
+    <string name="button_ok">Retry</string>
+
+    <string name="network_error_heading_weather">Not able to load Weather!</string>
+    <string name="network_error_heading_forecast">Not able to load Forecast!</string>
+
+    <string name="search_hint">Search by city</string>
+    <string name="search_title">Search weather by city</string>
+
+    <string name="permission_heading">Permission needed</string>
+    <string name="permission_content">THis app need your location. Please grant permission</string>
 </resources>

@@ -9,6 +9,7 @@ import retrofit2.http.Query
 interface WeatherApi {
 
     companion object {
+        //Please insert your own Open Weather API KEY
         const val API_KEY = ""
         const val UNIT = "metric"
     }
